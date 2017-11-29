@@ -27,6 +27,10 @@ input.btn {
     margin-bottom:1em;
     cursor:pointer;
 }
+
+input.btn:disabled {
+background:#ccc;
+}
 .life-container {
     background:#3FA0E1;
     padding:.5em;
