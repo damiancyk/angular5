@@ -1,21 +1,56 @@
-<div class="container color-dark">
-  <div class="col">
-    <p>Add a bucket list item</p>
-  </div>
-  <div class="col">
-    <p>Your bucket list</p>
-  </div>
-</div>
-<div class="container color-light"  [@goals]="goals.length">
-  <div class="col">
-    <p class="sm">Use this form below to add a new bucket list goal. What do you want to accomplish in your life?</p>
+<h1>PrimeNG</h1>
 
-    <form #formCtrl="ngForm">
-    <input type="text" class="txt" name="item" placeholder="Life goal.." [(ngModel)]="goalText" required>
-    <input type="submit" class="btn" value="{{ btnText }}" (click)="addItem()" [disabled]="!formCtrl.form.valid" />
-    </form>
-  </div>
-  <div class="col">
-  <p class="life-container" *ngFor="let goal of goals; let i = index" (click)="removeItem(i)">{{goal}}</p>
-  </div>
+<p>calendar</p>
+<p-calendar [(ngModel)]="value"></p-calendar>
+
+
+<p>dataTable</p>
+<p-dataTable [value]="items">
+    <p-column field="name" header="Vin"></p-column>
+    <p-column field="name" header="Year"></p-column>
+    <p-column field="id" header="Brand"></p-column>
+    <p-column field="name" header="Color"></p-column>
+</p-dataTable>
+
+
+
+<p>carousel</p>
+<p-carousel circular="circular" autoplayInterval="3000">
+  </p-carousel>
+
+
+<p>checkbox</p>
+<p-checkbox name="groupname" value="val1" [(ngModel)]="selectedValues"></p-checkbox>
+<p-checkbox name="groupname" value="val2" [(ngModel)]="selectedValues"></p-checkbox>
+
+
+<p>dropdown</p>
+<p-dropdown [options]="items" [(ngModel)]="selectedCity2" optionLabel="name"></p-dropdown>
+
+<p>inputgroup</p>
+<div class="ui-g ui-fluid">
+    <div class="ui-g-12 ui-md-4">
+        <div class="ui-inputgroup">
+            <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
+            <input type="text" pInputText placeholder="Username">
+        </div>
+    </div>
+
+    <div class="ui-g-12 ui-md-4">
+        <div class="ui-inputgroup">
+            <span class="ui-inputgroup-addon">$</span>
+            <input type="text" pInputText placeholder="Price">
+            <span class="ui-inputgroup-addon">.00</span>
+        </div>
+    </div>
+
+    <div class="ui-g-12 ui-md-4">
+        <div class="ui-inputgroup">
+            <span class="ui-inputgroup-addon">www</span>
+            <input type="text" pInputText placeholder="Website">
+        </div>
+    </div>
 </div>
+
+<p>textarea</p>
+<textarea [rows]="5" [cols]="30" pInputTextarea autoResize="autoResize"></textarea>

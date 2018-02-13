@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { trigger,style,transition,animate,keyframes,query,stagger } from '@angular/animations';
 import { DataService } from '../data.service';
+
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
+  encapsulation: ViewEncapsulation.None,
   animations: [
 
      trigger('goals', [
@@ -37,8 +39,11 @@ export class HomeComponent implements OnInit {
   btnText: string = 'Add an Item';
   goalText: string = '';
   goals = [];
+items=[];
 
-  constructor(private _data: DataService) { }
+  constructor(private _data: DataService) {
+this.items.push({id:'1', name:'Item 1'}, {id:'2', name:'Item 2'});
+  }
 
   ngOnInit() {
       this.itemCount = this.goals.length;
